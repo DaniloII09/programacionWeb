@@ -29,10 +29,10 @@ body {
   font-family: var(--font-family);
 }
 
-/* Main navigation bar style */
+/* Main navigation bar style for mobile-first */
 .main-nav {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   background-color: var(--nav-background-color);
@@ -42,15 +42,18 @@ body {
 /* Navigation title style */
 .main-nav h1 {
   color: var(--primary-color);
-  padding-inline-start: 0.5em;
+  padding: 0.5em 0;
   font-size: 1.5em;
+  text-align: center;
 }
 
 /* Navigation list style */
 .main-nav ul {
   list-style: none;
   display: flex;
-  gap: 1em;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
 }
 
 /* Navigation list item links */
@@ -59,7 +62,7 @@ body {
   color: var(--nav-text-color);
   cursor: pointer;
   text-transform: uppercase;
-  padding: 1em 2em;
+  padding: 1em;
   text-align: center;
   display: block;
   transition:
@@ -74,4 +77,41 @@ body {
 
 .main-nav ul li:hover a {
   color: var(--nav-background-color);
+}
+
+/* Tablet view: Adjust layout for medium-sized screens */
+@media (min-width: 600px) {
+  .main-nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-nav ul li {
+    flex: 1 1 calc(50% - 1em); /* Two columns layout */
+    max-width: 45%;
+  }
+}
+
+/* Desktop view: Restore original layout for large screens */
+@media (min-width: 1024px) {
+  .main-nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 1em;
+  }
+
+  .main-nav ul li {
+    flex: none; /* Reset flex behavior */
+  }
+
+  .main-nav ul li a {
+    padding: 1em 2em; /* Increase padding for desktop */
+  }
 }
