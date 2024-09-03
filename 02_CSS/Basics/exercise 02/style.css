@@ -96,6 +96,8 @@ deben de ser de color #607d8b */
 table a:hover
 {
   color:#607d8b;
+  background-color: white;
+  border-radius: 5px;
 }
 
 /*Haga que el elemento footer tenga un alto mínimo de 100px y alto de 150px

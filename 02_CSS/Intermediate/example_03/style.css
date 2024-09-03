@@ -10,9 +10,15 @@ a:visited {
   border: 1px solid transparent;
 }
 
-a:hover,
-a:active {
+a:hover {
   background-color: white;
   color: gray;
   border: 1px solid gray;
+}
+
+a:active
+{
+  background-color: red;
+  color: yellow;
+  border: 1px solid blue;
 }
